@@ -1555,6 +1555,7 @@ a {
 }
 
 .about-page .section-heading {
+  display: block;
   max-width: 760px;
   margin-bottom: 42px;
 }
@@ -1906,10 +1907,6 @@ a {
     min-height: auto;
     grid-template-columns: 1fr;
     padding-top: 72px;
-  }
-
-  .about-page .section-heading {
-    display: block;
   }
 
   .about-page .section-heading p {
