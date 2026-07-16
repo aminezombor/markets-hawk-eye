@@ -1,5 +1,5 @@
 import { Menu, Moon, SlidersHorizontal, Sun, X } from "lucide-react";
-import type { DatasetConfig, DatasetStats, FilterOptions, FilterState, GraphNode } from "../types/graph";
+import type { DatasetConfig, FilterOptions, FilterState, GraphNode } from "../types/graph";
 import { DatasetSelector } from "./DatasetSelector";
 import { FilterPanel } from "./FilterPanel";
 import { SafetyBadge } from "./SafetyBadge";
@@ -10,7 +10,6 @@ interface SidebarProps {
   activeDatasetId: string;
   safetyBadge: boolean;
   theme: "light" | "dark";
-  stats: DatasetStats;
   filters: FilterState;
   filterOptions: FilterOptions;
   searchResults: GraphNode[];
@@ -28,7 +27,6 @@ export function Sidebar({
   activeDatasetId,
   safetyBadge,
   theme,
-  stats,
   filters,
   filterOptions,
   searchResults,
@@ -44,7 +42,7 @@ export function Sidebar({
     <aside className={`map-control-panel${isOpen ? " open" : ""}`}>
       <div className="brand-block control-header">
         <div className="brand-copy">
-          <h1>Founder Map</h1>
+          <h1>Markets HAWK-EYE</h1>
           <p>Strategic Dependency Graph</p>
         </div>
         <div className="icon-button-row">
@@ -77,15 +75,6 @@ export function Sidebar({
 
           <FilterPanel filters={filters} options={filterOptions} onChange={onFilterChange} onReset={onResetFilters} />
 
-          <section className="sidebar-section">
-            <h2>Dataset stats</h2>
-            <div className="stats-grid">
-              <div><strong>{stats.nodes}</strong><span>Nodes</span></div>
-              <div><strong>{stats.edges}</strong><span>Edges</span></div>
-              <div><strong>{stats.opportunities}</strong><span>Opps</span></div>
-              <div><strong>{stats.sources}</strong><span>Sources</span></div>
-            </div>
-          </section>
         </div>
       )}
     </aside>

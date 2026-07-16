@@ -1,40 +1,37 @@
-# Founder Map
+# Markets HAWK-EYE
 
-Founder Map is a static strategic dependency graph console for exploring where the real economy is strong, exposed, bottlenecked, and buildable.
+Markets HAWK-EYE is a static strategic dependency map for examining where critical markets are concentrated, exposed, resilient, and open to investigation.
 
-The repository contains:
+The website contains two public surfaces:
 
-- `strategic-dependency-graph/` - public-source v0.1 data packages for AI, defence, aerospace, and industrial software / OT.
-- `web/` - the React + Vite website that loads those local JSON datasets and renders the interactive graph console.
+- `/` - the interactive map across five local datasets.
+- `/about` - the project methodology, data model, interpretation guide, and limitations.
 
 ## Run Locally
 
 ```bash
 cd web
-npm install
-npm run sync-data
-npm run dev
+pnpm install
+pnpm run sync-data
+pnpm test
+pnpm run build
+pnpm run dev
 ```
 
-Build:
+## Map Scope
 
-```bash
-cd web
-npm run sync-data
-npm run build
-```
+- EU AI Stack
+- Global AI Stack
+- Industrial Software / OT Stack
+- European Defence Stack
+- Global Aerospace Stack
 
-## What The App Does
+The map distinguishes known relationships from inferred strategic hypotheses. Every inferred edge should be treated as directional intelligence, not as confirmation of a private supplier contract or commercial relationship.
 
-- Loads all five v0.1 graph datasets.
-- Renders a force-directed graph with semantic node and edge colors.
-- Distinguishes known vs inferred relationships.
-- Supports dataset switching, search, filters, node/edge selection, source review, and opportunity highlighting.
-- Includes Light and Dark modes, with Light as the default.
-- Keeps defence data scoped to public-source strategic analysis only.
+Records without a valid graph edge remain visible as unconnected evidence. The interface does not invent relationships to make the graph look complete.
 
-## Data Scope
+## Architecture
 
-This is a static app. There is no backend, no database, no authentication, and no fake API. The data package is the source of truth.
+The React, Vite, and TypeScript frontend loads five versioned local JSON datasets and renders them with `react-force-graph-2d`. There is no backend, authentication layer, database, or live scraping in the deployed application.
 
-Inferred edges are strategic dependency hypotheses and must not be interpreted as confirmed supplier contracts.
+Built by Amine Zombor.

@@ -192,6 +192,22 @@ export interface VisibleGraph {
   edges: GraphEdge[];
 }
 
+export interface GraphComponentInfo {
+  id: string;
+  nodeIds: string[];
+  size: number;
+  edgeCount: number;
+  isPrimary: boolean;
+  isIsolated: boolean;
+}
+
+export interface GraphViewportInsets {
+  top: number;
+  right: number;
+  bottom: number;
+  left: number;
+}
+
 export const defaultFilters: FilterState = {
   query: "",
   nodeTypes: [],

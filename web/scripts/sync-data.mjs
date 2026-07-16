@@ -1,11 +1,10 @@
-import { copyFile, cp, mkdir, rm } from "node:fs/promises";
+import { copyFile, mkdir, rm } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const webRoot = path.resolve(__dirname, "..");
 const sourceRoot = path.resolve(webRoot, "..", "strategic-dependency-graph");
-const intelligenceRoot = path.resolve(webRoot, "intelligence");
 const outputRoot = path.resolve(webRoot, "public", "data");
 
 const datasets = [
@@ -38,13 +37,5 @@ await copyFile(
 for (const [datasetId, graphFile] of datasets) {
   await copyIntoPublic(datasetId, graphFile);
 }
-
-await cp(intelligenceRoot, path.join(outputRoot, "intelligence"), {
-  recursive: true,
-  force: true,
-  errorOnExist: false
-}).catch((error) => {
-  if (error?.code !== "ENOENT") throw error;
-});
 
 console.log(`Synced ${datasets.length} datasets to ${path.relative(webRoot, outputRoot)}`);

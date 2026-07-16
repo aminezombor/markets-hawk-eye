@@ -29,10 +29,6 @@ export async function loadDatasets(): Promise<GraphDataset[]> {
       const normalized = normalizeGraph(config.id, config.label, rawGraph, readme);
       const validationWarnings = validateGraph(normalized);
 
-      if (validationWarnings.length) {
-        console.warn(`[${config.label}] validation warnings`, validationWarnings);
-      }
-
       return {
         ...normalized,
         validationWarnings
