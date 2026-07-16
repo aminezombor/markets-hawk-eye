@@ -63,7 +63,7 @@ export function AboutPage({ datasets }: AboutPageProps) {
           </p>
           <div className="about-actions">
             <Link to="/" className="about-primary-action">Explore the map <ArrowRight size={17} aria-hidden /></Link>
-            <a href="https://github.com/aminezombor/Founder_map" target="_blank" rel="noreferrer" className="about-secondary-action">
+            <a href="https://github.com/aminezombor/markets-hawk-eye" target="_blank" rel="noreferrer" className="about-secondary-action">
               <Github size={17} aria-hidden /> View repository
             </a>
           </div>
